@@ -26,7 +26,7 @@ export default function RootLayout({
       <body className={`font-sans ${inter.variable}`}>
         <TRPCReactProvider>
           <Header />
-          <div className="max-w-screen-2xl flex flex-col items-center ">
+          <div className="max-w-screen-2xl mx-auto flex flex-col items-center ">
             {children}
           </div>
         </TRPCReactProvider>

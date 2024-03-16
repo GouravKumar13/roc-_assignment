@@ -12,10 +12,10 @@ const SignUp = () => {
 
             </section>
             <form className='  flex flex-col gap-7 w-[80%]  '>
-                <Input label="Name" placeHolder="Enter" type="text" />
-                <Input label="Email" placeHolder="Enter" type="email" />
+                <Input label="Name" placeholder="Enter" type="text" />
+                <Input label="Email" placeholder="Enter" type="email" />
                 <div className='relative'>
-                    <Input className='' label="Password" placeHolder="Enter" type={passwordVisible ? "text" : "password"} />
+                    <Input className='' label="Password" placeholder="Enter" type={passwordVisible ? "text" : "password"} />
                     <span onClick={() => setPasswordVisible(!passwordVisible)} className='absolute top-9 right-0 -translate-x-1/2    cursor-pointer text-sm underline'>show</span>
                 </div>
                 <button className='bg-black text-white rounded-md py-3 mt-3 ' type='submit'>CREATE ACCOUNT </button>

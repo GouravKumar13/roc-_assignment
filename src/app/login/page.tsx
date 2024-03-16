@@ -2,8 +2,8 @@
 import React, { useState } from 'react'
 import Input from '../_components/utils/input'
 import Link from 'next/link'
-
 const Login = () => {
+
     const [passwordVisible, setPasswordVisible] = useState(false)
     return (
         <div className='w-[576px] my-10 py-10 gap-10 border rounded-3xl justify-center  flex flex-col items-center '>
@@ -15,9 +15,9 @@ const Login = () => {
                 </div>
             </section>
             <form className=' border-b border-neutral-400 pb-8 flex flex-col gap-7 w-[80%]  '>
-                <Input label="Email" placeHolder="Enter" type="email" />
+                <Input label="Email" placeholder="Enter" type="email" />
                 <div className='relative'>
-                    <Input className='' label="Password" placeHolder="Enter" type={passwordVisible ? "text" : "password"} />
+                    <Input className='' label="Password" placeholder="Enter" type={passwordVisible ? "text" : "password"} />
                     <span onClick={() => setPasswordVisible(!passwordVisible)} className='absolute top-9 right-0 -translate-x-1/2    cursor-pointer text-sm underline'>show</span>
                 </div>
                 <button className='bg-black text-white rounded-md py-3 mt-3 ' type='submit'>Login </button>
