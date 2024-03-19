@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { NextResponse } from "next/server";
 
 export function middleware(req: Response) {
@@ -11,14 +12,8 @@ export function middleware(req: Response) {
   if (!isPublicPath && !token) {
     return NextResponse.redirect(new URL("/login", req.nextUrl));
   }
-
-  // if (token) {
-  //
-  // } else {
-  //   return NextResponse.redirect(new URL("/login", req.nextUrl));
-  // }
 }
 
 export const config = {
-  matcher: ["/", "/otp", "/signup", "/login"],
+  matcher: ["/", "/otp", "/login"],
 };
