@@ -42,7 +42,7 @@ function SignUp() {
         dispatch(login(user))
         const getotp = await axios.post('/api/users/otp', user)
         localStorage.setItem("otp", getotp.data.verificationCode)
-        router.push("/otp")
+        router.push("/otpValidation")
 
 
 
