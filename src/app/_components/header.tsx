@@ -1,5 +1,13 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 "use client"
 import React, { useState } from 'react'
+import { products } from '../config/products'
+import { useDispatch, useSelector } from 'react-redux'
+import { logout } from '../GlobalRedux/userSlice/user.slice'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import axios from 'axios'
 const sections = [
     {
         title: "Categories",
@@ -23,8 +31,21 @@ const sections = [
     },
 ]
 const Header = () => {
-    const [loggedIn, setLoggedIn] = useState(false)
+    const router = useRouter()
+    const dispatch = useDispatch()
+    const user = useSelector((state) => state.auth)
+    const authStatus = user.status
+    const userData = user.userData
 
+    const logoutHandler = async () => {
+        try {
+            await axios.get("/api/users/logout")
+            dispatch(logout())
+            router.push("/login")
+        } catch (error) {
+            console.log("error", error.message)
+        }
+    }
     return (
         <>
             <div className='w-full flex justify-between items-end h-[100px] pb-3 px-8 '>
@@ -45,7 +66,7 @@ const Header = () => {
                     <div className='text-xs space-x-3'>
                         <span>Help</span>
                         <span>Ordering & Refund</span>{
-                            loggedIn ? <span>Hi,john</span> : <span>Login</span>
+                            authStatus ? <span>Hi,<span className='capitalize cursor-pointer' onClick={logoutHandler}>{userData.name}</span></span> : <Link href={"/login"}>Login</Link>
                         }
                     </div>
                     <div className='flex gap-10'>
