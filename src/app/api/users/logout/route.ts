@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { NextResponse } from "next/server";
 
-export async function GET(res: NextResponse) {
+export async function GET(res: Request) {
   try {
     const res = NextResponse.json({
       message: "logout Successfully",

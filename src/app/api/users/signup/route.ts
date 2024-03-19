@@ -4,7 +4,7 @@ import { db } from "@/server/db";
 import { NextRequest, NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";
 
-export async function POST(req: NextRequest) {
+export async function POST(req: Request) {
   try {
     const reqBody = await req.json();
     const { name, email, password } = reqBody;
@@ -38,7 +38,7 @@ export async function POST(req: NextRequest) {
       newUser,
       status: 201,
     });
-  } catch (error) {
+  } catch (error:any) {
     NextResponse.json({ error: error.message, status: 400 });
   }
 }

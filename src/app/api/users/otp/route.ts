@@ -26,7 +26,7 @@ const mailer = async (email: string, verificationCode: number) => {
   console.log(info);
 };
 
-export async function POST(req: NextResponse) {
+export async function POST(req: Request) {
   const reqBody = await req.json();
   const { email } = reqBody;
   console.log(email, typeof email);

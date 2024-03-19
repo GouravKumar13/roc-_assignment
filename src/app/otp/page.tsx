@@ -1,20 +1,19 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 "use client"
-import { ToastContainer, toast } from "react-toastify"
 
 
 import { REGEXP_ONLY_DIGITS } from "input-otp"
 
+import axios from "axios"
+import { useRouter } from "next/navigation"
+import { useState } from "react"
+import { useSelector } from "react-redux"
 import {
     InputOTP,
     InputOTPGroup,
     InputOTPSlot,
 } from "../../components/ui/input-otp"
-import { useSelector } from "react-redux"
-import { useEffect, useState } from "react"
-import axios from "axios"
-import { useRouter } from "next/navigation"
 
 const Otp = () => {
     const [otp, setOtp] = useState("")
@@ -22,22 +21,8 @@ const Otp = () => {
     const user = useSelector((state) => state.auth)
     const userData = user.userData
     const router = useRouter()
-    // useEffect(() => {
-    //     const newOtp = []
-    //     for (let i = 0; i < 8; i++) {
 
-    //         const num = Math.floor(Math.random() * 10)
-    //         newOtp.push(num)
-    //         if (newOtp.length === 8) {
 
-    //             setOtp(newOtp)
-    //             return
-    //         }
-    //     }
-    // }, [])
-
-    console.log(value)
-    console.log(otp)
 
 
     const verifyOtpHandler = async (e: Event) => {

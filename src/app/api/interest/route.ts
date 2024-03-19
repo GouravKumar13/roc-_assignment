@@ -4,7 +4,7 @@ import { db } from "@/server/db";
 import { NextApiRequest, NextApiResponse } from "next";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(req: NextRequest) {
+export async function GET(req: Request) {
   try {
     // const url = new URL(req.url);
     // const searchParam = new URLSearchParams(url.searchParams);

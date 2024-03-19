@@ -1,7 +1,18 @@
 "use client";
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
+type userDataProps = {
+  email: string;
+  password: string;
+  id: string;
+};
+
+type initialStateType = {
+  status: boolean;
+  userData: userDataProps | null;
+};
+
+const initialState: initialStateType = {
   status: false,
   userData: null,
 };
@@ -10,7 +21,7 @@ const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    login: (state, action) => {
+    login: (state, action: PayloadAction<userDataProps>) => {
       state.status = true;
       state.userData = action.payload;
     },

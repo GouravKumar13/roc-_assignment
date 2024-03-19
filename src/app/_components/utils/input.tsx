@@ -13,7 +13,7 @@ const Input = ({
     ...props
 
 
-}: InputProps, ref) => {
+}: InputProps, ref: React.LegacyRef<HTMLInputElement> | undefined) => {
     const id = useId()
     return (
         <div className='flex flex-col  '>

@@ -1,12 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { db } from "@/server/db";
-import { NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
-import { Amiri_Quran } from "next/font/google";
-import { env } from "process";
+import { NextResponse } from "next/server";
 
-export async function POST(req: NextResponse) {
+export async function POST(req: Request) {
   try {
     const reqBody = await req.json();
     const { email, password } = reqBody;
@@ -34,7 +32,7 @@ export async function POST(req: NextResponse) {
       email: user.email,
     };
 
-    const token = await jwt.sign(tokenData, process.env.JWT_SECRET_KEY!, {
+    const token = jwt.sign(tokenData, process.env.JWT_SECRET_KEY!, {
       expiresIn: "1d",
     });
 

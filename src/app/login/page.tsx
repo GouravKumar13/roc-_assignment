@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { FormEvent, useEffect, useState } from 'react'
 import Input from '../_components/utils/input'
 import Link from 'next/link'
 import axios from 'axios'
@@ -17,7 +19,7 @@ const Login = () => {
     });
 
 
-    const handleSubmit = async (e: Event) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         try {
             const response = await axios.post("/api/users/login", formData)

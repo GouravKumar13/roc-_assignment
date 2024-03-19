@@ -1,13 +1,12 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 "use client"
-import React, { useState } from 'react'
-import { products } from '../config/products'
-import { useDispatch, useSelector } from 'react-redux'
-import { logout } from '../GlobalRedux/userSlice/user.slice'
+import axios from 'axios'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux'
+import { logout } from '../GlobalRedux/userSlice/user.slice'
 const sections = [
     {
         title: "Categories",
@@ -33,7 +32,7 @@ const sections = [
 const Header = () => {
     const router = useRouter()
     const dispatch = useDispatch()
-    const user = useSelector((state) => state.auth)
+    const user = useSelector((state: any) => state.auth)
     const authStatus = user.status
     const userData = user.userData
 
@@ -42,7 +41,7 @@ const Header = () => {
             await axios.get("/api/users/logout")
             dispatch(logout())
             router.push("/login")
-        } catch (error) {
+        } catch (error: any) {
             console.log("error", error.message)
         }
     }
