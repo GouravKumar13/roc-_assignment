@@ -57,7 +57,7 @@ const Login = () => {
                 <button disabled={active} className='bg-black text-white rounded-md py-3 mt-3 ' type='submit'>Login </button>
             </form>
             <section>
-                <p className='font-light text-[#333333]'>Don’t have an Account? <Link href="/signup"> <span className='text-black font-medium'>SIGN UP</span>
+                <p className='font-light text-[#333333]'>Don’t have an Account? <Link href="/signUp"> <span className='text-black font-medium'>SIGN UP</span>
                 </Link></p>
             </section>
         </div>
