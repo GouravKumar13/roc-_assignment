@@ -44,7 +44,7 @@ const Otp = () => {
 
                 <div className=' flex flex-col  gap-2 items-center '>
                     <p >Enter the 8 digit code you have received on </p>
-                    <p className='font-medium'>@gmai.comas</p>
+                    <p className='font-medium'>{userData.email}</p>
                 </div>
 
             </section >
